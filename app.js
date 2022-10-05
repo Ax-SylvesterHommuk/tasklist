@@ -54,6 +54,7 @@ function addTaskLS(task) {
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
+
 function deleteTaskLS(task) {
     let tasks
     if(localStorage.getItem('tasks') === null){
