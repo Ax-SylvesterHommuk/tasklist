@@ -2,6 +2,7 @@ const form  = document.querySelector('form')
 const taskInput = document.querySelector('#task')
 const taskList = document.querySelector('ul')
 const delAllTasks = document.querySelector('#del-tasks')
+const taskFind = document.querySelector('#keyword')
 
 form.addEventListener('submit', addTask)
 taskList.addEventListener('click', deleteTask)
@@ -90,4 +91,17 @@ function getTasks(){
         const ul = document.querySelector('ul')
         ul.appendChild(li)
     })
+}
+
+function taskFilter(){
+    let tasks = document.querySelectorAll('li')
+    let input = document.getElementById("keyword").value
+    for (i = 0; i < tasks.length; i++){
+        if (tasks[i].innerText.slice(0, -1).includes(input)){
+            tasks[i].hidden = false
+        }
+        else {
+            tasks[i].hidden = true
+        }
+    }
 }
